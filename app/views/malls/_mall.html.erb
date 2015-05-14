@@ -1,0 +1,5 @@
+<ul>
+  <% @mall.shops.order(name: :asc).each do | shop | %>
+    <li> <%= shop.name %> </li>
+  <% end %>
+</ul>

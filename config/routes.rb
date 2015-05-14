@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  resources :malls do
+    get :autocomplete_mall_name, :on => :collection
+  end
+  root 'malls#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -37,8 +37,15 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
+    autoprefixer-rails (5.1.9)
+      execjs
+      json
+    awesome_print (1.6.1)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.4.1)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.2.19)
     builder (3.2.2)
     byebug (4.0.5)
       columnize (= 0.9.0)
@@ -53,9 +60,13 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.5.2)
+    ffi (1.9.8)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    hirb (0.7.3)
     i18n (0.7.0)
+    interactive_editor (0.0.10)
+      spoon (>= 0.0.1)
     jbuilder (2.2.13)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -63,6 +74,8 @@ GEM
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.3)
+      railties (>= 3.2.16)
     json (1.8.2)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
@@ -97,6 +110,8 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails-jquery-autocomplete (1.0.0)
+      rails (>= 4.0)
     railties (4.2.1)
       actionpack (= 4.2.1)
       activesupport (= 4.2.1)
@@ -115,6 +130,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    spoon (0.0.4)
+      ffi
     spring (1.3.5)
     sprockets (3.0.3)
       rack (~> 1.0)
@@ -142,12 +159,20 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
+  awesome_print
+  bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
+  hirb
+  interactive_editor
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails
+  nokogiri
   pg
   rails (= 4.2.1)
+  rails-jquery-autocomplete
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
