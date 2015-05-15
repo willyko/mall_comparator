@@ -1,5 +1,17 @@
-<ul>
-  <% @mall.shops.order(name: :asc).each do | shop | %>
-    <li> <%= shop.name %> </li>
-  <% end %>
-</ul>
+<div class='mall'>
+  <div class='mall-name'>
+    <h2> <%= mall.name %> <span class='caret'/></h2>
+  </div>
+  <div class='search-bar' style='display: none'>
+    <%= form_for @mall, url: malls_path(:block_id => block_id), method: :get, remote: true, html: {class: 'form-group'} do |f| %>
+      <% f.autocomplete_field :name, autocomplete_mall_name_malls_path, placeholder: 'Enter another mall' %>
+    <% end %>
+  </div>
+  <div class='mall-directory'>
+    <ul>
+      <% mall.shops.order(name: :asc).each do | shop | %>
+        <li> <%= shop.name %> </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

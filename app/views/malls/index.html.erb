@@ -1,38 +1,14 @@
-<div class="container col-md-12">
-<h1> Mall Comp </h1>
-<h2>
-  <input type="text" id="filter-list" class="form-control" placeholder="Filter..."/>
-</h2>
+<div id="main-container" class="container-fluid">
+  <h1> Mall Comp </h1>
+  <h2>
+    <input type="text" id="filter-list" class="form-control" placeholder="Filter..."/>
+  </h2>
 
-<div class='list-block col-md-6'>
-   <div id='mall1' class='mall-name'>
-      <h2> <%= @mall1.name %> </h2>
-    </div>
-      <%= form_tag malls_path, method: :get, remote: true do %>
-        <% autocomplete_field_tag :search, params[:search], autocomplete_mall_name_malls_path, :size => 75 %>
-      <% end %>
-      <input type="text" id="selection1" class="form-control" placeholder='Choose another mall'/>
-      <br>
-      <div class='testtest'>
-      <%= render partial: "malls/mall" %>
-    </div>
-    <ul>
-      <% @mall1.shops.order(name: :asc).each do | shop | %>
-        <li> <%= shop.name %> </li>
-      <% end %>
-    </ul>
-</div>
-
-<div class='list-block col-md-6'>
-  <div id='mall2' class='mall-name'>
-    <h2> <%= @mall2.name %> </h2>
+  <div id='mall1' class='list-block col-md-6'>
+    <%= render partial: "/malls/mall", locals: {mall: @mall1, block_id: 1} %>
   </div>
-  <input type="text" id="selection2" class="form-control" placeholder='Choose another mall'/>
-  <br>
-  <ul>
-    <% @mall2.shops.order(name: :asc).each do | shop | %>
-      <li> <%= shop.name %> </li>
-    <% end %>
-  </ul>
-</div>
+
+  <div id='mall2' class='list-block col-md-6'>
+    <%= render partial: "/malls/mall", locals: {mall: @mall2, block_id: 2} %>
+  </div>
 </div>
