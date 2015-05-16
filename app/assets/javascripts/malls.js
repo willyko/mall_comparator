@@ -16,7 +16,64 @@ $(document).ready(function () {
     $(this).css('background-color' , '#222222');
   });
 
+  $('#btn-compare').on('click', function () {
+    $('#filter-list').slideUp();
+    $('#mall1 ul').find('li').each(function(index,value) {
+      selector_1 = $(this);
+      $('#mall2 ul').find('li').each(function(index) {
+        if ($(this).hasClass('matched')) {
+          // skip if already been matched
+          return true;
+        }
+        if(selector_1.text().toLowerCase().replace(/\s+/g, '') != $(this).text().toLowerCase().replace(/\s+/g, ''))  {
+          return true;
+        }
+        selector_1.addClass('matched');
+        $(this).addClass('matched');
+      });
+    });
+    $('.list-block li').each(function() {
+      if ($(this).hasClass('matched')) {
+        $(this).show();
+        $(this).removeClass('matched');
+      } else {
+        $(this).hide();
+      }
+    });
+  });
 
+  $('#btn-contra').on('click', function () {
+    $('#filter-list').slideUp();
+    $('#mall1 ul').find('li').each(function(index,value) {
+      selector_1 = $(this);
+      $('#mall2 ul').find('li').each(function(index) {
+        if ($(this).hasClass('matched')) {
+          // skip if already been matched
+          return true;
+        }
+        if(selector_1.text().toLowerCase().replace(/\s+/g, '') != $(this).text().toLowerCase().replace(/\s+/g, ''))  {
+          return true;
+        }
+        selector_1.addClass('matched');
+        $(this).addClass('matched');
+      });
+    });
+    $('.list-block li').each(function() {
+      if ($(this).hasClass('matched')) {
+        $(this).hide();
+        $(this).removeClass('matched');
+      } else {
+        $(this).show();
+      }
+    });
+  });
+
+  $('#btn-reset').on('click', function () {
+    $('#filter-list').slideDown();
+    $('.list-block li').each(function() {
+        $(this).show();
+    });
+  });
   $('#filter-list').keyup(function (e) {
     if(e.keyCode == 8) {
       $('li:contains(' + $(this).val() + ')').fadeIn();

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :malls do
     get :autocomplete_mall_name, :on => :collection
   end

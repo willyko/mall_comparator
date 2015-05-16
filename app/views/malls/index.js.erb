@@ -1,3 +1,3 @@
 <% if @mall %>
-    $("#mall<%=block_id%> .mall").replaceWith("<%= j render partial: "/malls/mall", locals: {mall: @mall, block_id: 1} %>");
+    $("#mall<%=block_id%> .mall").replaceWith("<%= j render partial: "/malls/mall", locals: {mall: @mall, block_id: block_id} %>");
 <% end %>
